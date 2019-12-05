@@ -1,0 +1,19 @@
+---
+micronaut:
+  application:
+    name: server
+
+---
+micronaut:
+  io:
+    watch:
+      paths: src/main
+      restart: true
+
+---
+datasource:
+  url: http://localhost
+  username: postgres
+  password:
+  hikari:
+    connection-init-sql: SELECT 1
