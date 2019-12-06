@@ -68,12 +68,21 @@ allOpen {
 	annotation("io.micronaut.aop.Around")
 }
 
+task copyDomaResources(type: Sync) {
+    from sourceSets.main.resources.srcDirs
+    into compileKotlin.destinationDir
+    include 'doma.compile.config'
+    include 'META-INF/**/*.sql'
+    include 'META-INF/**/*.script'
+}
+
 compileKotlin {
 	kotlinOptions {
 	    jvmTarget = '1.8' 
 	    //Will retain parameter names for Java reflection
 	    javaParameters = true 
 	}
+    dependsOn copyDomaResources
 }
 
 compileTestKotlin {
@@ -81,14 +90,6 @@ compileTestKotlin {
 	    jvmTarget = '1.8' 
 	    javaParameters = true 
 	}
-}
-
-task copyDomaResources(type: Sync) {
-    from sourceSets.main.resources.srcDirs
-    into compileKotlin.destinationDir
-    include 'doma.compile.config'
-    include 'META-INF/**/*.sql'
-    include 'META-INF/**/*.script'
 }
 
 //processResources {

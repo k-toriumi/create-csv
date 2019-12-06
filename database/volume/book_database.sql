@@ -56,7 +56,7 @@ INSERT INTO author (
   NULL,
   now(),
   now()
-FROM generate_series(1, 1000000) as i
+FROM generate_series(1, 3000000) as i
 ;
 
 INSERT INTO book (
@@ -81,5 +81,5 @@ INSERT INTO book (
   i,
   now(),
   now()
-FROM generate_series(1, 1000000) as i
+FROM generate_series(1, 3000000) as i
 ;

@@ -9,6 +9,6 @@ services:
       POSTGRES_PASSWORD:
       POSTGRES_DB: book_database
     volumes:
-      - home/ec2-user/docker/volume:/docker-entrypoint-initdb.d
+      - ./volume:/docker-entrypoint-initdb.d
     ports:
       - 5432:5432
