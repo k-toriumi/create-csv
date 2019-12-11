@@ -32,3 +32,4 @@ object AppConfig : Config {
         return 1000
     }
 }
+
