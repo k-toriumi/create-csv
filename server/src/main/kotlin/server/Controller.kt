@@ -28,8 +28,7 @@ class Controller {
     @Post("/download")
     fun download(): HttpResponse<StreamedFile> {
         var csv = service.download()
-        val inputStream = ByteArrayInputStream(csv)
-        val file = StreamedFile(inputStream, MediaType.APPLICATION_OCTET_STREAM_TYPE)
+        val file = StreamedFile(csv, MediaType.APPLICATION_OCTET_STREAM_TYPE)
         val filename = URLEncoder.encode("book_info.csv", "UTF-8")
         return HttpResponse
                 .ok(file)
