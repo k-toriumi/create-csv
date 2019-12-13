@@ -29,6 +29,6 @@ object AppConfig : Config {
     override fun getNaming() = Naming.SNAKE_LOWER_CASE
 
     override fun getFetchSize(): Int {
-        return 10
+        return 1000
     }
 }
